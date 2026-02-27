@@ -1,5 +1,5 @@
 import json
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from typing import Literal
 
 class MachineInput(BaseModel):

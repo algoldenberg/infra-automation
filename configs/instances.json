@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "name": "test1",
+        "os": "Ubuntu",
+        "cpu": "2vCPU",
+        "ram": "4GB"
+    },
+    {
+        "name": "test2",
+        "os": "CentOS",
+        "cpu": "4vCPU",
+        "ram": "8GB"
+    }
+]
