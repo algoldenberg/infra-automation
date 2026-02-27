@@ -1,3 +1,5 @@
+from src.logger import logger
+
 class Machine:
     def __init__(self, name, os, cpu, ram):
         self.name = name
@@ -14,4 +16,6 @@ class Machine:
         }
 
     def log_creation(self):
-        print(f"[INFO] Provisioning machine: {self.name} | OS: {self.os} | CPU: {self.cpu} | RAM: {self.ram}")
+        message = f"Provisioning machine: {self.name} | OS: {self.os} | CPU: {self.cpu} | RAM: {self.ram}"
+        logger.info(message)
+        print(f"[INFO] {message}")
