@@ -32,12 +32,18 @@ This tool demonstrates infrastructure-as-code principles through an interactive 
 
 ## 🏗️ Architecture
 ```
-├── main.py              # Entry point and orchestration
-├── models/              # Pydantic data models
-├── provisioning/        # Business logic layer
-├── scripts/             # Idempotent Bash scripts
-├── configs/             # JSON configuration storage
-├── logs/                # provisioning.log
+infra-automation/
+├── infra_simulator.py   # Main entry point and orchestration
+├── src/
+│   ├── machine.py       # Machine class - business logic layer
+│   ├── input_handler.py # User input and Pydantic validation
+│   └── logger.py        # Logging configuration
+├── scripts/
+│   └── setup_nginx.sh   # Idempotent Bash script for Nginx
+├── configs/
+│   └── instances.json   # JSON configuration storage
+├── logs/
+│   └── provisioning.log # Provisioning activity logs
 └── requirements.txt     # Python dependencies
 ```
 
@@ -56,7 +62,8 @@ cd infra-automation
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/Scripts/activate  # Windows
+source venv/bin/activate      # Linux/Mac
 
 # Install dependencies
 pip install -r requirements.txt
@@ -64,11 +71,24 @@ pip install -r requirements.txt
 
 ### Usage
 ```bash
-# Run the provisioning tool
-python main.py
+python infra_simulator.py
+```
 
-# Follow interactive prompts to define VMs
-# Scripts will automatically provision and configure services
+## 📊 Expected Output
+```
+=== Infrastructure Provisioning Tool ===
+
+Enter machine name (or 'done' to finish): web-server
+Enter OS (Ubuntu/CentOS): Ubuntu
+Enter CPU (e.g., 2vCPU): 2vCPU
+Enter RAM (e.g., 4GB): 4GB
+Enter machine name (or 'done' to finish): done
+
+[INFO] Provisioning machine: web-server | OS: Ubuntu | CPU: 2vCPU | RAM: 4GB
+Configurations saved to configs/instances.json
+[INFO] Nginx installation completed.
+
+=== Provisioning Complete ===
 ```
 
 ## 📝 Learning Outcomes

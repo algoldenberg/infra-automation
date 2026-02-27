@@ -4,5 +4,11 @@
         "os": "Ubuntu",
         "cpu": "2vCPU",
         "ram": "4GB"
+    },
+    {
+        "name": "Test2",
+        "os": "CentOS",
+        "cpu": "2vCPU",
+        "ram": "8GB"
     }
 ]
